@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="bootstrap/js/npm.js"></script>
+
+    <title>Store</title>
+</head>
+<style>
+body{
+    background-color: lightgoldenrodyellow;
+}
+</style>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <script src="js_event.js"></script>
+</head>
+<body onload="init()">
+<form id="myForm" name="myForm" method="post" action="page.php">
+    <input type="text" id="name" value="Please enter your name"
+           onfocus="textSelect(this)" onkeyup="upper()" required />
+    <input type="text" id="mail" value="Please enter your e-mail"
+           onfocus="textSelect(this)" />
+    <select id="country" onchange="changeCountry()">
+        <option value="">Please select country</option>
+        <option value="Thailand">Thailand</option>
+        <option value="UK">UK</option>
+        <option value="USA">USA</option>
+    </select>
+    <input type="submit" id="submitButton1" />
+    <input type="button" id="submitButton2" value="another submit"
+           onclick="checkSubmit();"/>
+</form>
+</body>
+</html>
+<script>
+    function init() {
+        var formElem = document.getElementById("myForm");
+        formElem.onsubmit = mailValidate;
+    }
+    function mailValidate() {
+        var mailElem = document.getElementById("mail");
+        if (mailElem.value==="") {
+            alert("Please enter your e-mail");
+            mailElem.focus();
+            return false;
+        }
+        if (mailElem.value.indexOf("@")===-1) {
+            alert("Your e-mail is not in correct format");
+            mailElem.focus();
+            return false;
+        }
+        return true;
+    }
+    function textSelect(elem) {
+        elem.select();
+    }
+    function upper(){
+        var nameElem = document.getElementById("name");
+        nameElem.value = nameElem.value.toUpperCase();
+    }
+    function changeCountry() {
+        var countrySelect = document.getElementById("country");
+        if (countrySelect.value === "Thailand")
+            alert("สวสด ั ีคะ ่ ");
+        else
+            alert("Hello");
+    }
+    function checkSubmit() {
+        var ok = confirm("Are you sure you want to submit the form?");
+        if (ok && mailValidate()) {
+            document.getElementById("myForm").submit();
+        }
+    }
+</script>
+
+
+</body>
+</html>
