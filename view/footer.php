@@ -18,15 +18,16 @@
         width:100%;
 
     }
+
 </style>
 
     <div>
         <div style="display: inline-block; float: left; margin-left: 2%; width: 43%;" >
-            <footer style="background-color: #ffff56">
+            <footer style="background-color: dimgray">
                 <center>
-                    <label>Copyright © 2017</br> Contact Us: Mr.Base & friends</br>
+                  <font style="color: lightgray">  Copyright © 2017 Gamming Gear Shop</br> Contact Us: Mr.Base & friends</br>
                     Bangkok,Thailand</br>
-                </label>
+                  </font>
                 </center>
             </footer>
         </div>

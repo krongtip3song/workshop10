@@ -6,6 +6,8 @@
  * Date: 7/2/2560
  * Time: 13:25
  */
+    session_start();
+    include ("../controller/connection.inc.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +23,7 @@
     a{text-decoration:none;
     color: white;}
 </style>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -29,10 +31,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">WebSiteName</a>
+            <a class="navbar-brand" href="../controller/check_login.php">Gamming Gear Shop</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
+           <!--  <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
@@ -44,11 +46,12 @@
                 </li>
                 <li><a href="#">Page 2</a></li>
                 <li><a href="#">Page 3</a></li>
-            </ul>
+            </ul>-->
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> สมัครสมาชิก</a></li>
-                <li><a href="../controller/check_login.php" id="logout" name="logout"><span class="glyphicon glyphicon-log-in"></span>  ออกจากระบบ</a></li>
+                <li><a href="../controller/logout.php" id="logout" name="<?php $_GET['logout']; ?>"><span class="glyphicon glyphicon-log-in"></span>  ออกจากระบบ</a></li>
             </ul>
+
         </div>
     </div>
 </nav>

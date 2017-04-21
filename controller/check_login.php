@@ -51,7 +51,7 @@ if (isset($_POST["login"])){
 
     login($_POST["username"],$_POST["password"],$conn);
 }
-if(isset($_POST["logout"])){
+if(isset($_GET["logout"])){
     session_unset();
     session_destroy();
     if (ini_get("session.use_cookies")) {
@@ -65,5 +65,8 @@ if (!isset($_SESSION["member_info"])){
     header('location: ../index.php');
     exit();
 }
+
+
 ?>
+
 

@@ -30,8 +30,8 @@ if(isset($_POST['delete'])){
 ?>
 <center><h3>สมาชิกทั้งหมด</h3></center></br></br>
 
-<table border='1px' align='center' width='50%' class="table table-responsive">
-<tr><th>ลำดับ</th>
+<table border='2px' align='center' class="table table-hover" style="width: 70%">
+<tr style="background-color: lightskyblue"><th>ลำดับ</th>
     <th>ชื่อผู้ใช้</th>
     <th>รหัสผ่านา</th>
     <th>ชื่อ</th>
