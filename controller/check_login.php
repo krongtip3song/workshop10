@@ -35,7 +35,7 @@ function login($username_chk,$passwd_chk,$conn){
         }else{
             //header('location:member_info.php');
             $_SESSION["User"] = true;
-            header('location:checkout_cart.php');
+            header('location:../view/products.php');
             exit();
         }
     }else{
@@ -46,7 +46,7 @@ function login($username_chk,$passwd_chk,$conn){
 if (isset($_POST["login"])){
     if (check($_POST["username"])){
         echo "<script>alert('กรุณากรอกข้อมูลใหม่')</script>";
-        echo "<script>window.location='index.php';</script>";
+        echo "<script>window.location='../index.php';</script>";
     }
 
     login($_POST["username"],$_POST["password"],$conn);

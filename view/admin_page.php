@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-    <title>Admin Management</title>
-</head>
-<body>
 <?php
 /**
  * Created by PhpStorm.
@@ -28,7 +19,17 @@ if(isset($_POST['delete'])){
     delete_user($_POST['delete2']);
 }
 ?>
-<center><h3>สมาชิกทั้งหมด</h3></center></br></br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <title>Admin Management</title>
+</head>
+<body>
+<div class="container" align="center">
+<h2>สมาชิกทั้งหมด</h2></br></br>
 
 <table border='2px' align='center' class="table table-hover" style="width: 70%">
 <tr style="background-color: lightskyblue"><th>ลำดับ</th>
@@ -45,15 +46,18 @@ while($i<count($users)) {
     echo "<tr><td>$no</td><td>{$users[$i]['username']}</td><td>{$users[$i]['password']}</td><td>{$users[$i]['name']}
             </td><td>{$users[$i]['surname']}</td>";
     echo "<td style='text-align: center;'>
+           <div class='col-sm-2'> 
             <form action='#' method='post'>
                    <input type='submit' class='btn btn-danger' name='delete' value='ลบ'/>
-                   <input type='hidden' name='delete2' value='".$users[$i]['username']."'/>
-                   
+                   <input type='hidden' name='delete2' value='".$users[$i]['username']."'/>   
             </form>
+            </div>
+            <div class='col-sm-2'> 
             <form action='../view/admin_page.php' method='post'>
                     <input type='submit' class='btn btn-warning' name='edit' value='แก้ไข'/>
                     <input type='hidden' name='edit2' value='".$users[$i]['username']."'/>
             </form>
+            </div>
            </td>
            </tr>";
     $i++;
@@ -63,6 +67,7 @@ while($i<count($users)) {
 ?>
 
 </table>
+</div>
 </body>
 </html>
 <?php include ("../view/footer.php");?>

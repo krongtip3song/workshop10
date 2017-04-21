@@ -17,8 +17,5 @@ if (ini_get("session.use_cookies")) {
     echo "Session deleted";
     header('location:../index.php');
     exit();
-if (!isset($_SESSION["member_info"])){
-    header('location: ../index.php');
-    exit();
-}
+
 ?>

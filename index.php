@@ -23,10 +23,10 @@
     if (isset($_GET["error"])){
         echo "<script type='text/javascript' >alert('ชื่อผู้ใช้หรือรหัสผ่านผิด กรุณากรอกใหม่ค่ะ')</script>";
     }
-    /*if (isset($_SESSION["member_info"])){
-        header('location:checkout_cart.php');
+    if (isset($_SESSION["member_info"])){
+        header('location:products.php');
         exit();
-    }*/
+    }
     ?>
 </head>
 <style>
@@ -35,6 +35,38 @@
     }
 </style>
 <body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="#">Gamming Gear Shop</a>
+
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <!-- <li class="active"><a href="../view/products.php">Products</a></li>
+                <li class="dropdown">
+                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Page 1-1</a></li>
+                        <li><a href="#">Page 1-2</a></li>
+                        <li><a href="#">Page 1-3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">sd</a></li> -->
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> สมัครสมาชิก</a></li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
 <div class="col-sm-12 col-lg-12 col-md-12" align="center" style="margin-top: 15%">
     <h3>
         Sign In
