@@ -5,7 +5,7 @@
  * Date: 6/2/2560
  * Time: 15:44
  */
-header("Content-type: text/html; charset=utf-8");
+
 session_start();
 include ('connection.inc.php');
 function check($username){
