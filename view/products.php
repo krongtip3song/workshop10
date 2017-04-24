@@ -47,13 +47,7 @@
                 }
             }
         }
-        $(document).ready(function () {
-            $("#amount").keydown(function (e) {
-                var chk = e['key'].charCodeAt(0);
-                console.log(chk);
 
-            });
-        });
     </script>
 </head>
 <?php
