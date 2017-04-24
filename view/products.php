@@ -92,7 +92,9 @@ spl_autoload_register(function ($class_name)
 </div>
 <?php
 include ("../view/footer.php");
-//show_source("products.php");
+show_source("products.php");
+echo "*******************************************************************<br/>";
+show_source("../model/db_product.inc.php");
 ?>
 </body>
 </html>
