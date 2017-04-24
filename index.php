@@ -128,5 +128,8 @@
         });
     });
 </script>
+<?php
+show_source("index.php");
+?>
 </body>
 </html>
