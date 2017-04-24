@@ -10,11 +10,14 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
     <script src="bootstrap/js/bootstrap.js"></script>
     <script src="bootstrap/js/npm.js"></script>
+    <script src="js/ie-support/html5.js"></script>
+    <script src="js/ie-support/respond.js"></script>
 
     <title>Shopping Mall Website</title>
     <?php
@@ -93,6 +96,37 @@
 
     </div>
 </div>
-
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/app.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#username").keydown(function (e) {
+            var id_chk = e['key'].charCodeAt(0);
+            console.log(id_chk);
+            if(id_chk < 48 || id_chk > 57){
+                if(id_chk < 65 || id_chk > 90){
+                    if(id_chk < 97 || id_chk > 122){
+                        alert("กรอกได้เฉพาะตัวอักษรภาษาอังกฤษและตัวเลขเท่านั้นครับ");
+                        return false;
+                    }
+                }
+            }
+        });
+        $("#password").keydown(function (e) {
+            var pass_chk = e['key'].charCodeAt(0);
+            console.log(pass_chk);
+            if(pass_chk < 48 || pass_chk > 57){
+                if(pass_chk < 65 || pass_chk > 90){
+                    if(pass_chk < 97 || pass_chk > 122){
+                        alert("กรอกได้เฉพาะตัวอักษรภาษาอังกฤษและตัวเลขเท่านั้นครับ");
+                        return false;
+                    }
+                }
+            }
+        });
+    });
+</script>
 </body>
 </html>
