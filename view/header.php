@@ -6,7 +6,7 @@
  * Date: 7/2/2560
  * Time: 13:25
  */
-    session_start();
+    //session_start();
     include ("../controller/connection.inc.php");
 ?>
 <!DOCTYPE html>
