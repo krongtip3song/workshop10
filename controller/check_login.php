@@ -39,7 +39,9 @@ function login($username_chk,$passwd_chk,$conn){
             exit();
         }
     }else{
-        header('location:index.php?error=1');
+        echo "<script>error();</script>";
+        echo "<script>window.location='../index.php'</script>";
+        //header('location:index.php');
         exit();
     }
 }
