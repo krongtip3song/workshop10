@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>
+        /* AJAX -------------------------------------------------------------------------
         function loadProduct() {
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function() { setName(xhr); };
@@ -47,7 +50,40 @@
                 }
             }
         }
+*/
+    </script>
+    <script>
+        // jQuery -------------------------------------------------------------------------
+        $(document).ready(function () {
+            $.ajax({
+                url: "http://localhost/webapp/workshop10/model/db_product.inc.php",
+                async: false,
+                success: function (products) {
+                        var product = JSON.parse(products);
+                        var table = document.getElementById("table_product");
+                        for (var i = 0; i<product.length; i++) {
+                            var count = i + 1;
+                            var tr = document.createElement("tr");
+                            var td1 = document.createElement("td");
+                            td1.innerHTML = count;
+                            tr.appendChild(td1);
+                            var td2 = document.createElement("td");
+                            td2.innerHTML = product[i][0];
+                            tr.appendChild(td2);
+                            var td3 = document.createElement("td");
+                            td3.innerHTML = product[i][1];
+                            tr.appendChild(td3);
+                            var td4 = document.createElement("td");
+                            td4.innerHTML = product[i][2];
+                            tr.appendChild(td4);
+                            var td5 = document.createElement("td");
+                            td5.innerHTML = "<input name='amount[]' type='number' id='amount'/>";
+                            tr.appendChild(td5);
+                            table.appendChild(tr);
+                        }
 
+                }});
+            });
     </script>
 </head>
 <?php
@@ -64,7 +100,7 @@ spl_autoload_register(function ($class_name)
     require_once "../class/".$class_name.".class.php";
 });
 ?>
-<body onload="loadProduct()">
+<body>
 
 <div align="center">
     <h2>เลือกซื้อสินค้า</h2>
@@ -98,4 +134,3 @@ show_source("../model/db_product.inc.php");
 ?>
 </body>
 </html>
-
