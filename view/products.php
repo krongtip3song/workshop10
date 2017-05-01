@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php
+    include ("../view/header.php");
+    include ("../controller/check_login.php");
+    include ("../controller/connection.inc.php");
+
+    if (!isset($_SESSION["User"])){
+        header('location:index.php');
+        exit();
+    }
+    spl_autoload_register(function ($class_name)
+    {
+        require_once "../class/".$class_name.".class.php";
+    });
+    ?>
     <meta charset="UTF-8">
     <title>Checkout Cart</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -52,13 +66,38 @@
         }
 */
     </script>
-    <script>
-        // jQuery -------------------------------------------------------------------------
-        $(document).ready(function () {
-            $.ajax({
-                url: "http://localhost/webapp/workshop10/model/db_product.inc.php",
-                async: false,
-                success: function (products) {
+
+</head>
+<body>
+
+<div align="center" style="margin-top: 70px;">
+    <h2>เลือกซื้อสินค้า</h2>
+</div>
+<div align="center">
+    <form name="buy" action="calculate_cart.php" method="post">
+        <?php
+        $proList = new productList($conn);
+        $productString = serialize($proList->getProducts());
+        $_SESSION["productS"] = $productString;
+        $pro = $proList->getProducts();
+        ?>
+        <table class="table table-hover" border='2' style="width: 60%" id="table_product">
+            <tr style="background-color: #ffff6b">
+                <th>ลำดับ</th>
+                <th>ชื่อสินค้า</th>
+                <th>รหัสสินค้า</th>
+                <th>ราคา</th>
+                <th width="30%">จำนวน</th>
+            </tr>
+        </table></p>
+
+        <script>
+            // jQuery -------------------------------------------------------------------------
+            $(document).ready(function () {
+                $.ajax({
+                    url: "http://localhost/workshop10/model/db_product.inc.php",
+                    async: false,
+                    success: function (products) {
                         var product = JSON.parse(products);
                         var table = document.getElementById("table_product");
                         for (var i = 0; i<product.length; i++) {
@@ -82,46 +121,9 @@
                             table.appendChild(tr);
                         }
 
-                }});
+                    }});
             });
-    </script>
-</head>
-<?php
-include ("../view/header.php");
-include ("../controller/check_login.php");
-include ("../controller/connection.inc.php");
-
-if (!isset($_SESSION["User"])){
-    header('location:index.php');
-    exit();
-}
-spl_autoload_register(function ($class_name)
-{
-    require_once "../class/".$class_name.".class.php";
-});
-?>
-<body>
-
-<div align="center">
-    <h2>เลือกซื้อสินค้า</h2>
-</div>
-<div align="center">
-    <form name="buy" action="calculate_cart.php" method="post">
-        <?php
-        $proList = new productList($conn);
-        $productString = serialize($proList->getProducts());
-        $_SESSION["productS"] = $productString;
-        $pro = $proList->getProducts();
-        ?>
-        <table class="table table-hover" border='2' style="width: 60%" id="table_product">
-            <tr style="background-color: #ffff6b">
-                <th>ลำดับ</th>
-                <th>ชื่อสินค้า</th>
-                <th>รหัสสินค้า</th>
-                <th>ราคา</th>
-                <th>จำนวน</th>
-            </tr>
-        </table></p>
+        </script>
 
         <input class="btn btn-success" type="submit" name="buy" id="buy" value="ซื้อสินค้า"/>
     </form>

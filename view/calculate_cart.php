@@ -48,7 +48,9 @@ for ($i=0;$i<count($products);$i++)
 }
 
 ?>
-<center><h2>ใบเสร็จ</h2>
+<div style="margin-top: 70px;">
+<center>
+    <h2>ใบเสร็จ</h2>
 <?php
 $proCart = new Cart($products,$unit);
 
@@ -59,6 +61,7 @@ createTable($products,$duct2,$sell);
 
     </form>
 </center></br>
+</div>
 <?php
 include ("../view/footer.php");
 ?>
